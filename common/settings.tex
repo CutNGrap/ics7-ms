@@ -57,6 +57,7 @@
 \captionsetup[figure]{name = {}, justification = centerlast,labelformat=empty}
 \captionsetup[lstlisting]{justification = justified}
 \captionsetup[table]{justification = justified}
+\captionsetup[tabularx]{justification = justified}
 
 
 \usepackage{titlesec}
@@ -67,11 +68,13 @@
 \renewcommand\labelenumi{\theenumi)}
 
 \newcommand{\img}[3] {
-	\begin{figure}[h!]
-		\includegraphics[scale = #1]{img/#2}
-		\caption{#3}
-		\label{img:#2}
-	\end{figure}
+	\begin{center}
+		\begin{figure}[h!]
+			\includegraphics[scale = #1]{img/#2}
+			\caption{#3}
+			\label{img:#2}
+		\end{figure}
+	\end{center}
 }
 
 \newcommand{\lst}[4]{
@@ -81,3 +84,5 @@
 \usepackage{siunitx,array,booktabs}
 \usepackage{amsthm}
 \usepackage{tabularx}
+\newtheorem{theorem}{Theorem}
+\newtheorem{definition}{Опредление}

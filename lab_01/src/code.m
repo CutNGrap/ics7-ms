@@ -5,28 +5,28 @@ Z = sort(X);
 fclose(f);
 n = length(X);
 
-% a
+
 M_min = min(X);
 M_max = max(X);
 fprintf('Mmin = %f\n', M_min);
 fprintf('Mmax = %f\n', M_max);
 
-% á
+
 R = M_max - M_min;
 fprintf('Range = %f\n', R);
 
-% â
+
 MX = mean(X);
 DX = sum((X - MX).^2) /(n - 1);
 fprintf('Mu = %f\n', MX);
 fprintf('S2 = %f\n', DX);
 
-% ã
+
 m = floor(log2(n))+ 2;
 h = R / m;
 intervals = cell(1, m);
 i = 1;
-fprintf('m = %d, h = %f\n', m, h);
+fprintf('m = %d, delta = %f\n', m, h);
 bracket = ') ';
 format short;
 for cur = (M_min):h:(M_max-h)
@@ -49,7 +49,7 @@ for i = 1:s(2)
     fprintf('%8d       ', cellsz{i}(1));
 end
 fprintf('\n');
-% ä
+
 figure('Name', 'Graph 1');
 histogram(X, m, 'BinEdges', M_min:h:M_max, 'Normalization', 'pdf');
 hold on;
@@ -59,7 +59,7 @@ Xn = (M_min - h): 0.1 :(M_max + h);
 y = pdf('normal', Xn, MX, DX);
 plot(Xn,y), grid;
 
-% å
+
 figure('Name', 'Graph 2');
 [yy, xx] = ecdf(X);
 stairs(xx, yy,'LineWidth',1.5);
