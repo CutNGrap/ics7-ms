@@ -1,0 +1,128 @@
+% Формат бумаги, шрифт
+\documentclass[14pt, twoside, a4paper]{extreport}
+\usepackage{extsizes}
+
+% Русский язык
+\usepackage[T2A]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage[english,russian]{babel}
+
+% Поля, абзацы
+\usepackage[left=30mm,right=10mm,top=20mm,bottom=20mm]{geometry}
+
+% Межстрочный интервал
+\usepackage{setspace}
+\onehalfspacing
+
+% Абзацный отступ
+\usepackage{indentfirst}
+\setlength{\parindent}{1.25cm}
+
+% Без отступа в списках
+\usepackage{enumitem}
+%\setlist{nolistsep}
+
+% Тире вместо точки в списках
+\renewcommand{\labelitemi}{---}
+\renewcommand{\labelenumi}{\arabic{enumi})}
+
+% Вставка графических изображений
+\usepackage{graphicx}
+\graphicspath{ {./img/} }
+
+% Листинги кода
+\usepackage{listings}
+\lstset{
+	basicstyle=\footnotesize\ttfamily,
+	numbers=left,
+	numberstyle=\tiny,
+	numbersep=5pt,
+	tabsize=4,
+	breaklines=true,
+	frame=b,
+	stringstyle=\ttfamily\ttfamily,
+	showspaces=false,
+	showtabs=false,
+	xleftmargin=17pt,
+	framexleftmargin=17pt,
+	framexrightmargin=5pt,
+	framexbottommargin=4pt,
+	showstringspaces=false,
+	inputencoding=utf8x,
+	keepspaces=true,
+	numberbychapter=false
+}
+
+% Дополнительные возможности в формулах
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{mathtools}
+
+% Вставка графиков
+\usepackage{tikz}
+\usepackage{pgfplots}
+
+% Подчёркивание всей области (\uline)
+\usepackage[normalem]{ulem}
+
+% Переопределение заголовков
+\usepackage{titlesec}
+
+%\AddToHook{cmd/section/before}{\clearpage}
+\titleformat{\chapter}[block]{\bfseries\normalsize\filcenter}{\thechapter}{1em}{}
+\titlespacing\chapter{\parindent}{\parskip}{1em}
+
+\titleformat{\section}[hang]{\bfseries\normalsize}{\thesection}{1em}{}
+\titlespacing\section{\parindent}{\parskip}{\parskip}
+
+\titleformat{\subsection}[hang]{\bfseries\normalsize}{\thesubsection}{1em}{}
+\titlespacing\subsection{\parindent}{\parskip}{\parskip}
+
+% Диагональное разделение первой ячейки в таблицах
+%\usepackage{slashbox}
+
+% Правильные подписи
+\usepackage{caption}
+\captionsetup[figure]{justification=centering}
+\DeclareCaptionLabelSeparator{emdash}{\ ---\ }
+\captionsetup[figure]{name={Рисунок},labelsep=emdash}
+\captionsetup[lstlisting]{labelsep=emdash}
+\captionsetup[table]{singlelinecheck=false, labelsep=emdash}
+
+% Сквозная нумерация таблиц и изображений
+\counterwithout{figure}{chapter}
+\counterwithout{table}{chapter}
+\counterwithout{equation}{chapter}
+
+% Дочерние уравнения
+\newenvironment{sequations} {
+\begin{subequations}
+\renewcommand{\theequation}{\arabic{parentequation}.\arabic{equation}}
+}{
+\end{subequations}
+}
+
+% Подписи в титульном листе
+\usepackage{array}
+\newenvironment{signstabular}[1][1]{
+	\renewcommand*{\arraystretch}{#1}
+	\tabular
+}{
+	\endtabular
+}
+
+% Эта штука, каким-то образом, центрирует таблицы и изображение :/
+\makeatletter
+\g@addto@macro\@floatboxreset\centering
+\makeatother
+
+% Формат индексации источников в списке
+\makeatletter
+\renewcommand\@biblabel[1]{#1.}
+\makeatother
+
+% Изображения боком
+\usepackage{rotating}
+
+% Переименование списка иточников
+\addto\captionsrussian{\renewcommand{\bibname}{Источники}}

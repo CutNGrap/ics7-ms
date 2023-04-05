@@ -26,15 +26,29 @@ m = floor(log2(n))+ 2;
 h = R / m;
 intervals = cell(1, m);
 i = 1;
+fprintf('m = %d, h = %f\n', m, h);
+bracket = ') ';
+format short;
 for cur = (M_min):h:(M_max-h)
     next = cur + h;
     intervals(i) = {X((cur <= X) & (X < next))};
+    fprintf('[%5.2f, %5.2f%s', cur, next,bracket);
     i = i + 1;
+    if i == m
+        bracket = ']';
+    end
 end
 intervals{m} = [intervals{m}; X(X == M_max)];
-fprintf('m = %d, h = %f\n', m, h);
+intervals(1);
+cellsz = cellfun(@size,intervals,'uni',false);
+cellsz{5}(1);
 
-
+fprintf('\n');
+s = size(cellsz);
+for i = 1:s(2)
+    fprintf('%8d       ', cellsz{i}(1));
+end
+fprintf('\n');
 % д
 figure('Name', 'Задание Д');
 histogram(X, m, 'BinEdges', M_min:h:M_max, 'Normalization', 'pdf');
