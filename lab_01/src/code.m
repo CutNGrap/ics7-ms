@@ -50,7 +50,7 @@ for i = 1:s(2)
 end
 fprintf('\n');
 % д
-figure('Name', 'Задание Д');
+figure('Name', 'Graph 1');
 histogram(X, m, 'BinEdges', M_min:h:M_max, 'Normalization', 'pdf');
 hold on;
 x = (M_min - h):0.1:(M_max+h);
@@ -60,7 +60,7 @@ y = pdf('normal', Xn, MX, DX);
 plot(Xn,y), grid;
 
 % е
-figure('Name', 'Задание Г');
+figure('Name', 'Graph 2');
 [yy, xx] = ecdf(X);
 stairs(xx, yy,'LineWidth',1.5);
 hold on;
