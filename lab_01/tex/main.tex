@@ -25,88 +25,41 @@
 \end{enumerate}
 
 \chapter{Теоретическая часть}
-\addcontentsline{toc}{chapter}{Введение}
 
-\section{Формулы для вычисления величин}
+Пусть $\vec{x} = (x_1, \dots, x_n)$ --- реализация случайной выборки из генеральной совокупности X.
 
-Реализация случайной выборки из генеральной совокупности случайной величины X:
-\begin{equation}
-	\label{x}
-	\overrightarrow{x} = (x_1, x_2,\dots,x_n).
-\end{equation}
-
-Минимальное значение выборки:
-\begin{equation}
-	\label{min}
-	M_{min} = min(x_1, x_2,\dots,x_n).
-\end{equation}
-
-Максимальное значение выборки:
-\begin{equation}
+В работе использовались следующие формулы для вычисления величин:
+\begin{gather}
 	\label{max}
-	M_{max} = max(x_1, x_2,\dots,x_n).
-\end{equation}
-
-Размах выборки:
-\begin{equation}
-	\label{r}
-	R = M_{max} - M_{min}.
-\end{equation}
-
-Оценка математического ожидания выборки:
-\begin{equation}
+	M_{max} = x_{(n)} = \underset{x_i \in \vec{x}}{max}~x_i;\\
+	\label{min}
+	M_{min} = x_{(1)} = \underset{x_i \in \vec{x}}{min}~x_i;\\
+	\label{R}
+	R = M_{max} - M_{min};\\
 	\label{mu}
-	\hat{\mu}(\overrightarrow{x}) = \overline{x} = \frac{1}{n}\sum_{i=1}^{n}x_i.
-\end{equation}
+	\hat\mu = \frac{1}{n}\sum_{i = 1}^{N}~x_i;\\
+	\label{s}
+	S^2 = \frac{1}{n - 1}\sum_{i = 1}^{N}~(x_i - \hat\mu)^2;
+\end{gather}
+где (\ref{max}) --- максимальное значение выборки, (\ref{min}) --- минимальное значение выборки, (\ref{R}) --- размах выборки, (\ref{mu}) --- оценка математического ожидания, (\ref{s}) --- оценка дисперсии.
 
-Несмещенная(исправленная) оценка дисперсии выборки:
+Эмпирическая плотность распределения вероятности задаётся формулой:
 \begin{equation}
-	\label{s2}
-	S^2(\overrightarrow{x}) = \frac{1}{n-1}\sum_{i=1}^{n}{(x_i - \overline{x})^2}.
+	\hat{f}_X(x) = \begin{cases}
+		\frac{m_i}{n\Delta}, x \in J_i; \\
+		0, \text{иначе},
+	\end{cases}
 \end{equation}
+где $m_i$ --- количество значений выборки в $J_i$ интервале интервального ряда, n --- объём выборки, $\Delta$ --- длина интервалов.
 
-\section{Эмпирическая плотность и гистограмма}
-\begin{definition}
-	Эмпирической функцией плотности, отвечающей выборке  $\overline{x}$, называют функцию
-	\begin{equation}
-		f_{n} (x) = \begin{cases}
-			\frac{m_i}{n\Delta}, \text{если $x\in J_i$},\\
-			0, \text{иначе},
-		\end{cases}
-	\end{equation}
-\end{definition}
-	где $m_i$ --- количество значений выборки в $J_i$ интервале интервального ряда, n --- объем выборки, $\Delta$ --- длина интервалов.
-%	\begin{itemize}
-%		\item m --- количество полуинтервалов интервала J = [$M_{min}$, $M_{max}$], $\overline{x}$, которые приняли значение меньше x,
-%		\item $m_i$ --- количество элементов выборки  $\overline{x}$, принадлежащих полуинтервалу $J_i$, $i=\overline{1,m}$,
-%		\item n --- количество элементов выборки  $\overline{x}$,
-%		\item $\Delta = \frac{M_{min} - M_{max}}{m} = \frac{|J|}{m}$.
-%	\end{itemize}
+Гистограммой называется график эмпирической функции плотности распределения.
 
-\begin{definition}
-	График функции $f_{n}(x)$ называют гистограммой.
-\end{definition}
+Эмпирическая функция распределения задаётся формулой:
+\begin{equation}
+	\hat{F}_X(x) = \frac{n_x}{n},
+\end{equation}
+где $n_x$ --- количество значений выборки строго меньше x, n --- объём выборки.
 
-\section{Эмпирическая функция распределения}
-\begin{definition}
-	Эмпирической функцией распределения, отвечающей выборке $\overline{x}$, называют функцию\\
-	\begin{equation}
-	F_n(x, \overline{x}) = \frac{n(x,\overline{x})}{n}, x\in\mathbb{R},
-	\end{equation}
-\end{definition}
-	где $n(x,\overline{x})$ --- количество значений выборки строго меньше x, n --- объем выборки.
-%	\begin{itemize}
-%	\item $n(x,\overline{x})$ --- количество элементов выборки $\overline{x}$, которые приняли значение меньше x,
-%	\item n --- количество элементов выборки.
-%	\end{itemize}
-
-%\chapter{Практическая часть}
-%\section{Текст программы}
-%\lst{1}{68}{1}{Текст программы}
-%
-%
-%\clearpage
-\chapter{Результаты расчетов для выборки из индивидуального варианта}
 
 Задание выполнялось по варианту №2.  
 \begin{center}
