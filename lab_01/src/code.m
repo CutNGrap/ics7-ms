@@ -55,13 +55,15 @@ histogram(X, m, 'BinEdges', M_min:h:M_max, 'Normalization', 'pdf');
 hold on;
 x = (M_min - h):0.1:(M_max+h);
 % f = exp(-(x-MX).^2./(2*DX))./(sqrt(DX * 2 * pi));
-Xn = (M_min - h): 0.1 :(M_max + h);
+Xn = (M_min - h): 0.1 :(M_max + 2 *h);
 y = pdf('normal', Xn, MX, DX);
 plot(Xn,y), grid;
 
 
 figure('Name', 'Graph 2');
 [yy, xx] = ecdf(X);
+yy = [0;yy;1];
+xx = [M_min-h;xx;M_max+h];
 stairs(xx, yy,'LineWidth',1.5);
 hold on;
 Y = normcdf((Xn - MX) / DX);
