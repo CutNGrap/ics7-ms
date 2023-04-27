@@ -36,19 +36,19 @@ for i = 1:n
 end
 
 figure('Name', 'Graph 1');
-plot([1:n], Mu_sp, 'm');
+plot([10:n], Mu_sp(10:n), 'm');
 hold on;
-plot([1:n], mu_sp, 'g');
+plot([10:n], mu_sp(10:n), 'g');
 hold on;
-plot([1:n], m1, 'r'), grid;
+plot([10:n], m1(10:n), 'r'), grid;
 hold on;
-plot([1:n], m2, 'b'), legend('y=mu', 'y=mu_n', 'y=mu-low_n', 'y=mu-high_n');
+plot([10:n], m2(10:n), 'b'), legend('y=mu', 'y=mu_n', 'y=mu-low_n', 'y=mu-high_n');
 
 figure('Name', 'Graph 2');
-plot([1:n], S_sp, 'm');
+plot([10:n], S_sp(10:n), 'm');
 hold on;
-plot([1:n], s_sp, 'g');
+plot([10:n], s_sp(10:n), 'g');
 hold on;
-plot([1:n], s1, 'r'), grid;
+plot([10:n], s1(10:n), 'r'), grid;
 hold on;
-plot([3:n], s2(3:n), 'b'), legend('z=S^2', 'z=S^2_n', 'z=S^2-low_n', 'z=S^2-high_n');
+plot([10:n], s2(10:n), 'b'), legend('z=S^2', 'z=S^2_n', 'z=S^2-low_n', 'z=S^2-high_n');
